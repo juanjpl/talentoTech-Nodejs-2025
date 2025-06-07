@@ -9,7 +9,9 @@ import { getProductsID } from "./modules/getProductsID.js";
 //console.log(process.argv[2])
 //console.log(process.argv[3])
 const parametro1 = process.argv[2];
-const parametro2 = process.argv[3]
+const parametro2 = process.argv[3];
+const parametro3 = process.argv[4];
+const parametro4 = process.argv[5];
 
 //getProducts();
 
@@ -19,6 +21,8 @@ if (parametro1 === "GET" && parametro2==="products"){
     //console.log(parametro2)
     //console.log(parametro2.slice(9));
     getProductsID(parametro2.slice(9));
+}else if(parametro1 === "DELETE" && parametro2.length >9){
+     deleteProductID(parametro2.slice(9));
 }else{
   console.log("Error! Parametros ingresados incorrectamente.")
 }
