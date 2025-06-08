@@ -1,0 +1,27 @@
+const http = require("http");
+const fs = require("fs");
+const PORT = 5000;
+//console.log(http)
+
+const config = (req,res)=>{
+
+    const user ={
+        nombre:"Juan",
+        apellido:"While"
+    }
+    
+    const html = fs.readFileSync("./index.html","utf-8")
+    res.statusCode = 200;
+    res.setHeader("Content-Type","text/html");
+
+
+    res.end(html);
+}
+
+const server = http.createServer(config);
+
+
+//listener
+server.listen(PORT,()=>{
+    console.log(`Servidor corriendo el puerto ${PORT}`)
+});
