@@ -16,4 +16,16 @@ const createUser = (user)=>{
     return newUser
 }
 
-export default {getAllUsers , createUser};
+const updateUser=(id, name)=>{
+    const userFound = getUserById(id);
+    if(!userFound)return null
+    userFound.name = name;
+    return userFound;
+}
+
+const getUserById= (id)=>{
+    return users.find((user)=>user.id === id);
+}
+
+
+export default {getAllUsers , createUser, updateUser , getUserById};
