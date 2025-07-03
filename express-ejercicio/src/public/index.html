@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+    <p id="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, blanditiis quaerat temporibus consectetur iste cumque quibusdam quia, illo harum non, asperiores qui nesciunt dicta beatae quae in quo nobis debitis.</p>
+</body>
+<script>
+    const p = document.querySelector("p#message")
+    fetch("http://localhost:5000/api")
+        .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data.message);
+                p.innerHTML = data.message;
+    })
+</script>
+</html>
