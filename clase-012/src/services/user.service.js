@@ -1,8 +1,10 @@
 // services
 // import ... from '../models/user.model.js'
 
+import users from "../config/db.js"
+
 const getAll = () => {
-  return;
+  return users;
 };
 
 export default { getAll };
