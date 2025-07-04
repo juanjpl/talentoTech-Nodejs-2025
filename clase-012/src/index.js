@@ -1,7 +1,8 @@
 import express from "express";
 import { join, __dirname } from "./utils/index.js";
 import userRoutes from "./routes/user.route.js";
-//settings
+import productRoutes from "./routes/product.route.js";
+
 const app = express();
 app.set("PORT", 3000);
 
@@ -15,7 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ title: "Home Page" });
 });
-// app.use("/api/users", userRoutes);
+
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/products", productRoutes);
 
 //listeners
 app.listen(app.get("PORT"), () => {

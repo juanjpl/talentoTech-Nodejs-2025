@@ -1,5 +1,6 @@
 // controller
 import userService from '../services/user.service.js'
+
 const getUsers = (req, res) => {
 
     try {

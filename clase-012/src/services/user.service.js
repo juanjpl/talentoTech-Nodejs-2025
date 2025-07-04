@@ -1,10 +1,14 @@
 // services
 // import ... from '../models/user.model.js'
 
-import users from "../config/db.js"
+import db from "../config/db.js"
 
 const getAll = () => {
-  return users;
+  return db.users;
 };
 
-export default { getAll };
+const findById = (id)=>{
+  return users.find(user.id === id);
+}
+
+export default { getAll, findById };
