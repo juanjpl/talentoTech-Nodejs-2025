@@ -6,6 +6,7 @@ const app = express();
 app.set("PORT", 3000);
 
 // middlewares
+
 app.use(express.json());
 app.use(express.static(join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
