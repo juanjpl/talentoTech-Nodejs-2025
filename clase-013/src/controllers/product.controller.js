@@ -17,4 +17,22 @@ const getProducts = (req, res) => {
     }
 };
 
-export default { getProducts };
+const createProduct = async (req, res) => {
+  const { name, color } = req.body;
+
+  try {
+    if (!name || !color) {
+      return res.status(200).json({ message: "All fields are required" });
+    }
+    const newProduct= await  productService.createProduct({ name, color});
+    console.log(newProduct);
+    res.status(201).json({ message: "Product created", payload: newProduct });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+const seedProduct=(req, res)=>{
+
+}
+
+export default { getProducts, createProduct, seedProduct };

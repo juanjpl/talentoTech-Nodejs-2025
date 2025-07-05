@@ -1,6 +1,6 @@
 // services
 import User from '../models/user.model.js'
-import db from "../config/db.js"
+import db from "../config/dbUsers.js"
 
 const getAll = async () => {
   return await db.getAllUsers();
