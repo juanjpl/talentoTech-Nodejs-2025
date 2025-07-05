@@ -1,14 +1,28 @@
 // services
-// import ... from '../models/user.model.js'
-
+import User from '../models/user.model.js'
 import db from "../config/db.js"
 
-const getAll = () => {
-  return db.users;
+const getAll = async () => {
+  return await db.getAllUsers();
 };
 
-const findById = (id)=>{
-  return users.find(user.id === id);
+const findById = async (id)=>{
+  return await db.users.find((user)=>user.id === id);
 }
 
-export default { getAll, findById };
+const create = async(user)=>{
+  const users= await db.getAllUsers();
+  let id = `user${users.length + 1}`
+
+  //const newUser = await new User ({id: user.id, name: user.name, email: user.email});
+  const newUser = {
+    id,name:user.name,email:user.email
+  }
+
+  users.push(newUser);
+  await db.saveUsers(users);
+  return newUser;
+
+}
+
+export default { getAll, findById, create };

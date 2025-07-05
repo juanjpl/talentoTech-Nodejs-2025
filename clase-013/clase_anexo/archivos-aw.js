@@ -1,7 +1,7 @@
 
 import fs from "fs/promises"
 
-const opAsincrona = async ()=>{
+export const opAsincrona = async ()=>{
 
     try {
         await fs.writeFile("ejemplo-promesa.txt","Hola soy una promesa")
@@ -16,4 +16,6 @@ const opAsincrona = async ()=>{
         console.log("Error al escribir el archivo");
     }
     
-}
+};
+
+opAsincrona();
