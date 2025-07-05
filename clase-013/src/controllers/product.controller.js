@@ -1,6 +1,7 @@
 // controller
 import productService from '../services/product.service.js'
 
+
 const getProducts = (req, res) => {
 
     try {

@@ -1,28 +1,21 @@
 // services
-import Product from '../models/product.model.js'
-import db from "../config/dbProducts.js"
+import * as productService from "../models/product.model.js"
 
-const getAll = async () => {
-  return await db.getAllProducts();
+const getAllProducts = () => {
+  return  productService.getAllProducts();
 };
 
-const findById = async (id)=>{
-  return await db.product.find((product)=>product.id === id);
+const getProductById = async (id)=>{
+  return await productService.getProductById(id);
 }
 
-const create = async(product)=>{
-  const products= await db.getAllProducts();
-  let id = `product${products.length + 1}`
-
-  //const newUser = await new User ({id: user.id, name: user.name, email: user.email});
-  const newProduct= {
-    id,name:product.name,color:product.color
-  }
-
-  products.push(newProduct);
-  await db.saveProducts(products);
-  return newProduct;
-
+const createProduct = async(productData)=>{
+ const {name, color} = productData;
+ return await productService.saveProduct(name,color);
 }
 
-export default { getAll, findById, create };
+const deleteProduct = async (id)=>{
+  return await productService.deleteProduct(id);
+}
+
+export default {getAllProducts, getProductById, createProduct, deleteProduct};
