@@ -2,6 +2,7 @@ import express from "express";
 import { join, __dirname } from "./utils/index.js";
 import userRoutes from "./routes/user.route.js";
 import productRoutes from "./routes/product.route.js";
+//import {db} from "./data/data.js";
 
 const app = express();
 app.set("PORT", 3000);
@@ -17,8 +18,8 @@ app.get("/", (req, res) => {
   res.json({ title: "Home Page" });
 });
 
-app.use("/api/v1/users", userRoutes);
-app.use("/api/v1/products", productRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/products", productRoutes);
 
 //listeners
 app.listen(app.get("PORT"), () => {
