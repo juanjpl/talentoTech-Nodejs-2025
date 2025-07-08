@@ -1,0 +1,23 @@
+[
+    {
+        "id":"Product 001",
+        "name":"Mobile Phone",
+        "color":"Black"
+    },
+    {
+        "id":"Product 002",
+        "name":"Notebook IBM",
+        "email":"Blue"
+    },
+    {
+        "id":"Product 003",
+        "name":"Smart TV 43",
+        "email":"Yellow"
+    },
+    {
+        "id":"Product 004",
+        "name":"Smartwatch",
+        "email":"Pink"
+    }
+
+]
