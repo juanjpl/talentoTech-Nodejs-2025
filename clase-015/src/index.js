@@ -26,6 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 
+   
+
 app.use('/auth', authRouter);
 
 app.get("/", (req, res) => {
@@ -36,13 +38,15 @@ app.use("/api/users",authentication, userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories",authentication, productRoutes);
 
-app.use((req,res,next)=>{
+
+app.use((req,res)=>{
   console.log("404 page not found.");
   res.write("Page not found. Error 404.");
   res.end();
-})
+}) 
+           
 
 //listeners
 app.listen(app.get("PORT"), () => {
-  console.log(`Server on port http://localhost:${app.get("PORT")}`);
+  console.log(`Server on port https://localhost:${app.get("PORT")}`);
 });
