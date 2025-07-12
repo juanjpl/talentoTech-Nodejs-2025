@@ -39,11 +39,12 @@ app.use("/api/products", productRoutes);
 app.use("/api/categories",authentication, productRoutes);
 
 
-app.use((req,res)=>{
-  console.log("404 page not found.");
-  res.write("Page not found. Error 404.");
-  res.end();
-}) 
+
+// Middleware para manejar rutas no encontradas (404)
+app.use((req, res, next) => {
+  console.log("Ruta no encontrada 404")
+  res.status(404).json({ message: 'Ruta no encontrada' });
+});
            
 
 //listeners
