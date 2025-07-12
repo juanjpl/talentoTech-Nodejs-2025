@@ -7,22 +7,18 @@ const default_user = {
     password: "strongPass123"
 }
 
-export async function login(req,res){
-    const {email, password} = req.body;
+export async function login(req, res) {
+    console.log(req.body)
 
-    //Aqui deberias verificar las credenciales del usuario
+  const { email, password } = req.body;
+  const user = {id:1,email};
 
-    //Ejemplo de usuario autenticado
-
-    const user = {id:1 , email};
-
-    if (email === default_user.email
-        && password === default_user.password){
-
-            const token = generateToken(user);
-            res.json({token});
-        }else{
-            res.status(401).json({message: "Unauthorized user!"});
-                
-        }
+  if (email === default_user.email
+      && password === default_user.password) {
+    const token = generateToken(user);
+   console.log(token)
+    res.json({ token });
+  } else {
+    res.sendStatus(401);
+  }
 }

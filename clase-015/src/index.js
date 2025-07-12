@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users",authentication, userRoutes);
-app.use("/api/products", productRoutes);
+app.use("/api/products",productRoutes);
 app.use("/api/categories",authentication, productRoutes);
 
 
