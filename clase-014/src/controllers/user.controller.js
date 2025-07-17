@@ -1,5 +1,6 @@
 // controller
 import userService from "../services/user.service.js";
+
 const getUsers = (req, res) => {
   try {
     const users = userService.getAll();
@@ -16,17 +17,19 @@ const getUsers = (req, res) => {
 
 const createUser = async (req, res) => {
   const { name, email } = req.body;
+
   try {
     if (!name || !email) {
       return res.status(200).json({ message: "All fields are required" });
     }
-    const newUser = await  userService.createUser({ name, email });
+    const newUser = await  userService.create({ name, email });
     console.log(newUser);
     res.status(201).json({ message: "user created", payload: newUser });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 const seedUser=(req, res)=>{
 
 }
