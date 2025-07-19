@@ -1,5 +1,5 @@
 //products.model.js
-import {db} from '../data/data.js';
+import {db} from '../config/db.js';
 import {
     collection,
     getDocs,
@@ -34,6 +34,7 @@ export const  getAllProducts= async()=>{
         console.log(products)
         querySnapshot.forEach((doc)=>{ products.push({id:doc.id, ...doc.data()}) } );
     
+        console.log("Lista de productos")
         console.log(products)
         return products;
    
