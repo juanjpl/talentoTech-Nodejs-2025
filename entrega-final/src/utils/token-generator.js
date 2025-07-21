@@ -9,3 +9,12 @@ export const generateToken = (userData) => {
   const expiration = { expiresIn: '1h' };
   return jwt.sign(user, secret_key, expiration);
 }
+
+  export const verifyToken = (token)=>{
+    try {
+      const decoded = jwt.verify(token, secret_key)
+     return { valid:true, decoded}
+    } catch (error) {
+      return {valid:false, message: error.message}
+    }
+  }

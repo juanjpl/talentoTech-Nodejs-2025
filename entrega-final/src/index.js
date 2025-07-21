@@ -22,19 +22,12 @@ app.use(express.json());
 app.use(express.static(join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-
 // Routes
-app.use('/auth', authRouter);
-
 app.get("/", (req, res) => {
   res.json({ title: "Home Page" });
 });
-
+app.use('/auth', authRouter);
 app.use("/api/products",productRoutes);
-//app.use("/api/products", authentication,productRoutes);
-//complete
-
-
 
 // Middleware para manejar rutas no encontradas (404)
 app.use((req, res, next) => {

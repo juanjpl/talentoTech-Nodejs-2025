@@ -1,16 +1,17 @@
-import { envs } from '../config/index.js';
-import jwt from 'jsonwebtoken';
-  import 'dotenv/config';
-  const secret_key = process.env.JWT_SECRET_KEY;
-  // Middleware para verificar el token JWT
-  export const authentication = (req, res, next) => {
-    const token = req.headers['authorization'].split(" ")[1];
+import { verifyToken } from "../utils/token-generator.js";
 
-    if (!token) return res.sendStatus(401);
+const secret_key = envs.secrets.jwt_secret;
+// Middleware para verificar el token JWT
 
+export const authentication = (req, res, next) => {
+  const token = req.headers["authorization"].split(" ")[1];
 
-    jwt.verify(token, secret_key, (err) => {
-        if (err) return res.sendStatus(403);
-        next();
-    });
-  }
+  if (!token) return res.sendStatus(401);
+
+  const verificationResult = verifyToken(token);
+
+  if (!verificationResult.valid) return res.sendStatus(403);
+
+  req.user = verificationResult.decoded;
+  next();
+};

@@ -1,4 +1,3 @@
-
 import {generateToken} from '../utils/token-generator.js';
 
 const default_user = {
@@ -8,7 +7,7 @@ const default_user = {
 }
 
 export async function login(req, res) {
-    console.log(req.body)
+    //console.log(req.body)
 
   const { email, password } = req.body;
   const user = {id:1,email};
