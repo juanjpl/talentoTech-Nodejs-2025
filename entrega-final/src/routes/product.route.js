@@ -9,7 +9,7 @@ const router = Router()
 router.get('/', productController.getProducts);
 router.get('/:id', productController.getProducts);
 router.post('/create',authentication, productController.createProduct);
-router.delete('/:id',authentication, productController.delete);
+//router.delete('/:id',authentication, productController.delete);
 
 
 export default router

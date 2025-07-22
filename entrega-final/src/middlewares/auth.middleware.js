@@ -1,4 +1,5 @@
 import { verifyToken } from "../utils/token-generator.js";
+import { envs } from "../config/index.js";
 
 const secret_key = envs.secrets.jwt_secret;
 // Middleware para verificar el token JWT
